@@ -1,0 +1,19 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" opened>
+      <mat-toolbar color="primary">پنل ادمین</mat-toolbar>
+      <mat-nav-list>
+          <a mat-list-item href="#" routerLink="/posts"  routerLinkActive="active">پست</a>
+          <a mat-list-item href="#" routerLink="/report"  routerLinkActive="active">گزارش</a>
+          <a mat-list-item href="#" routerLink="/users"  routerLinkActive="active">کاربران</a>
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <span>پنل</span>
+      </mat-toolbar>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
