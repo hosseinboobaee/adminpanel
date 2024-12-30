@@ -1,7 +1,8 @@
+@use "assets/Scss/fonts";
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -20,15 +21,17 @@ $adminpanelSite-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$adminpanelSite-theme: mat.define-light-theme((
-  color: (
-    primary: $adminpanelSite-primary,
-    accent: $adminpanelSite-accent,
-    warn: $adminpanelSite-warn,
-  ),
-  typography: mat.define-typography-config(),
-  density: 0
-));
+$adminpanelSite-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $adminpanelSite-primary,
+      accent: $adminpanelSite-accent,
+      warn: $adminpanelSite-warn,
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -37,5 +40,34 @@ $adminpanelSite-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  margin: 0;
+  background: #f4f5f7;
+  direction: rtl;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+html {
+  font-family: "IRANSansX", sans-serif !important;
+  --mdc-snackbar-supporting-text-font: "IRANSansX", sans-serif !important;
+  --mdc-text-button-label-text-font: "IRANSansX", sans-serif !important;
+  --mat-toolbar-title-text-font: "IRANSansX", sans-serif !important;
+  --mdc-list-list-item-label-text-font: "IRANSansX", sans-serif !important;
+  --mat-table-header-headline-font: "IRANSansX", sans-serif !important;
+  --mat-form-field-container-text-font: "IRANSansX", sans-serif !important;
+  --mat-table-row-item-label-text-font: "IRANSansX", sans-serif !important;
+  --mdc-protected-button-label-text-font: "IRANSansX", sans-serif !important;
+}
+
+.mat-mdc-tab-header {
+  --mat-tab-header-label-text-font: "IRANSansX", sans-serif !important;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
