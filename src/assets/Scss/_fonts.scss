@@ -79,3 +79,17 @@ This set of fonts are used in this project under the license: (.....)
   font-weight: normal;
   src: url("../fonts/woff/IRANSansX-Regular.woff") format("woff"), url("../fonts/woff2/IRANSansX-Regular.woff2") format("woff2");
 }
+
+@font-face {
+  font-family: Yekan;
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/yekan/YekanBakh-Black.woff") format("woff");
+}
+@font-face {
+  font-family: Yekan;
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/yekan/YekanBakhFaNum-Black.woff") format("woff");
+}
+
