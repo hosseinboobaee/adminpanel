@@ -21,6 +21,16 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./users/users.component').then((m) => m.UsersComponent),
       },
+      {
+        path: 'itemcategory',
+        loadComponent: () =>
+          import('./item-category/item-category.component').then((m) => m.ItemCategoryComponent),
+      },
+      {
+        path: 'item',
+        loadComponent: () =>
+          import('./item/item.component').then((m) => m.ItemComponent),
+      },
     ],
   },
 ];
