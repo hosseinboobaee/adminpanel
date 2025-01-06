@@ -6,13 +6,13 @@ import { ItemCategoryModel } from '../model/item-category.model';
   providedIn: 'root'
 })
 export class ItemcategoryService {
-  public apiUrl: string = 'http://localhost:3000';
+  public apiUrl: string = 'http://localhost:5222/api';
   constructor(private http: HttpClient) {}
   CreateCategory(category:ItemCategoryModel){
-    return this.http.post<any>(`${this.apiUrl}/ProduCtategory/CreateProduct`,category);
+    return this.http.post<any>(`${this.apiUrl}/ProductBrand/createbrand`,category);
   }
 
   GetCategories(){
-    return this.http.get(`${this.apiUrl}/ProduCtategory/GetAllCategory`);
+    return this.http.get(`${this.apiUrl}/ProductBrand`);
   }
 }

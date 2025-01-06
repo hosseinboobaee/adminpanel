@@ -1,9 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
-  FormControlName,
   FormsModule,
   ReactiveFormsModule,
   Validators,
@@ -31,8 +29,7 @@ import { take } from 'rxjs';
 })
 export class ItemcategoryEntityComponent {
   private _formBuilder = inject(FormBuilder);
-  imageSrc: string | ArrayBuffer;
-  picture: File;
+  fileName: string;
   formGroup = this._formBuilder.group({
     name: new  FormControl('', [Validators.required]),
   });
@@ -40,16 +37,17 @@ export class ItemcategoryEntityComponent {
 
 
     onFileSelected(event: Event): void {
-    const file = (event.target as HTMLInputElement).files?.[0];
-    if (file) {
-      this.picture = file;
-    }
+      const input = event.target as HTMLInputElement;
+      if (input.files && input.files.length > 0) {
+        const file = input.files[0];
+         this.fileName = file.name;
+      }
   }
 
   saveData() {
    const category =  new ItemCategoryModel(
     this.formGroup.controls['name'].value!,
-    this.picture
+    this.fileName
    );
 
     if (this.formGroup.valid) {
