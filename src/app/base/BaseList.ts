@@ -6,7 +6,7 @@ import { BaseApiService } from './BaseApiService';
     selector: 'app-base-list',
     template: '', 
   })
-export class BaseListComponent<T> implements OnInit {
+export class BaseList<T> implements OnInit {
   data: T[] = [];
   apiUrl: string = '';
   isLoading: boolean = false;

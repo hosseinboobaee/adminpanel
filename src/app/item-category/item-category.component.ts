@@ -6,6 +6,8 @@ import { ItemcategoryEntityComponent } from '../itemcategory-entity/itemcategory
 import { ItemcategoryService } from '../services/itemcategory.service';
 import { take } from 'rxjs';
 import { ItemCategoryModel } from '../model/item-category.model';
+import { BaseList } from '../base/BaseList';
+import { BaseApiService } from '../base/BaseApiService';
 
 
 @Component({
@@ -14,10 +16,11 @@ import { ItemCategoryModel } from '../model/item-category.model';
   templateUrl: './item-category.component.html',
   styleUrl: './item-category.component.scss',
 })
-export class ItemCategoryComponent implements OnInit{
-  constructor(private categoryService: ItemcategoryService) {}
-  ngOnInit() {
-   this.loadData();
+export class ItemCategoryComponent  extends BaseList<ItemCategoryModel>{
+
+  constructor(apiService: BaseApiService<ItemCategoryModel>) {
+    super(apiService);
+    this.apiUrl = '/ProductBrand'; 
   }
   readonly dialog = inject(MatDialog);
   displayedColumns: string[] = ['code','name'];
@@ -29,9 +32,9 @@ export class ItemCategoryComponent implements OnInit{
       console.log(`Dialog result: ${result}`);
     });
   }
-  loadData(){
-    this.categoryService.GetCategories().pipe(take(1)).subscribe((x:ItemCategoryModel[]) =>{
-      this.dataSource = x;
-    });
-  }
+  // loadData(){
+  //   this.categoryService.GetCategories().pipe(take(1)).subscribe((x:ItemCategoryModel[]) =>{
+  //     this.dataSource = x;
+  //   });
+  //}
 }
