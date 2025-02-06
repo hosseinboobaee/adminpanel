@@ -12,5 +12,6 @@ export const appConfig: ApplicationConfig = {
      provideClientHydration(), 
      provideAnimationsAsync(),
      provideHttpClient(),
-     provideHttpClient(withInterceptors([adminInterceptor]))]
+    // provideHttpClient(withInterceptors([adminInterceptor]))
+    ]
 };

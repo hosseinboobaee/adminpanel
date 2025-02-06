@@ -13,6 +13,8 @@ import { MatInputModule } from '@angular/material/input';
 import { ItemcategoryService } from '../services/itemcategory.service';
 import { ItemCategoryModel } from '../model/item-category.model';
 import { take } from 'rxjs';
+import { BaseList } from '../base/BaseList';
+import { BaseForm } from '../base/BaseForm';
 
 @Component({
   selector: 'app-itemcategory-entity',
@@ -27,34 +29,35 @@ import { take } from 'rxjs';
   templateUrl: './itemcategory-entity.component.html',
   styleUrl: './itemcategory-entity.component.scss',
 })
-export class ItemcategoryEntityComponent {
+export class ItemcategoryEntityComponent extends BaseForm{
   private _formBuilder = inject(FormBuilder);
   fileName: string;
   formGroup = this._formBuilder.group({
     name: new  FormControl('', [Validators.required]),
   });
-  constructor(private categoryService: ItemcategoryService) {}
+  constructor(private categoryService: ItemcategoryService) {
 
-
-    onFileSelected(event: Event): void {
-      const input = event.target as HTMLInputElement;
-      if (input.files && input.files.length > 0) {
-        const file = input.files[0];
-         this.fileName = file.name;
-      }
   }
+
+
+  //   onFileSelected(event: Event): void {
+  //     const input = event.target as HTMLInputElement;
+  //     if (input.files && input.files.length > 0) {
+  //       const file = input.files[0];
+  //        this.fileName = file.name;
+  //     }
+  // }
 
   saveData() {
    const category =  new ItemCategoryModel(
     this.formGroup.controls['name'].value!,
-    this.fileName
    );
 
-    if (this.formGroup.valid) {
-      this.categoryService.CreateCategory(category).pipe(take(1)).subscribe((x:any) =>{
-        console.log(x);
+    // if (this.formGroup.valid) {
+    //   this.categoryService.CreateCategory(category).pipe(take(1)).subscribe((x:any) =>{
+    //     console.log(x);
         
-      });
-    }
+    //   });
+    // }
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseApiService } from './BaseApiService';
+import { response } from 'express';
 
 
 @Component({
@@ -10,8 +11,9 @@ export class BaseList<T> implements OnInit {
   data: T[] = [];
   apiUrl: string = '';
   isLoading: boolean = false;
+  dataSource : any;
 
-  constructor(private apiService: BaseApiService<T>) {}
+  constructor(public apiService: BaseApiService<T>) {}
 
   ngOnInit(): void {
     if (this.apiUrl) {
@@ -26,6 +28,7 @@ export class BaseList<T> implements OnInit {
     this.apiService.get(this.apiUrl).subscribe({
       next: (response) => {
         this.data = response;
+        this.dataSource = this.data;
         this.isLoading = false;
       },
       error: (err) => {
@@ -34,4 +37,6 @@ export class BaseList<T> implements OnInit {
       },
     });
   }
+
+
 }

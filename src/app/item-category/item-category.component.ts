@@ -19,12 +19,12 @@ import { BaseApiService } from '../base/BaseApiService';
 export class ItemCategoryComponent  extends BaseList<ItemCategoryModel>{
 
   constructor(apiService: BaseApiService<ItemCategoryModel>) {
-    super(apiService);
-    this.apiUrl = '/ProductBrand'; 
+    super(apiService); 
+    this.apiUrl='http://localhost:5222/api/ProductBrand'
   }
   readonly dialog = inject(MatDialog);
   displayedColumns: string[] = ['code','name'];
-  dataSource: ItemCategoryModel[];
+ // dataSource: ItemCategoryModel[];
 
   openDialog() {
     const dialogRef = this.dialog.open(ItemcategoryEntityComponent);
@@ -33,8 +33,11 @@ export class ItemCategoryComponent  extends BaseList<ItemCategoryModel>{
     });
   }
   // loadData(){
-  //   this.categoryService.GetCategories().pipe(take(1)).subscribe((x:ItemCategoryModel[]) =>{
+  //   this.apiService.get('/ProductBrand').subscribe((x:ItemCategoryModel[]) =>{
   //     this.dataSource = x;
   //   });
-  //}
+  // }
+  // CreateCategory(category:ItemCategoryModel){
+  //   return this.http.post<any>(`/ProductBrand/createbrand`,category);
+  // }
 }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +9,7 @@ export class BaseApiService<T> {
   constructor(private http: HttpClient) {}
 
   get(url: string): Observable<T[]> {
-    return this.http.get<T[]>(url);
+    return this.http.get<T[]>(url).pipe(take(1));
   }
 
   post(url: string, data: T): Observable<T> {
